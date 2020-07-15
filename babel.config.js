@@ -20,7 +20,8 @@ module.exports = {
           '@controllers': './src/controllers',
           '@views': './src/views',
           '@interfaces': './src/interfaces',
-          '@databaseManager': './src/databaseManager'
+          '@databaseManager': './src/databaseManager',
+          '@types': './src/types'
         }
       }
     ]

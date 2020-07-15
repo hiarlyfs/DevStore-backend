@@ -1,5 +1,5 @@
 import { Product } from 'src/types/Product'
 
 export interface Database {
-  getProducts(): Promise<Product[]>
+  getProducts(categoria?: string): Promise<Product[]>
 }

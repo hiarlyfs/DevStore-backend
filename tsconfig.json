@@ -22,7 +22,8 @@
       "@views/*": ["./src/views/*"],
       "@config/*": ["./src/config/*"],
       "@interfaces/*": ["./src/interfaces/*"],
-      "@databaseManager/*": ["./src/databaseManager/*"]
+      "@databaseManager/*": ["./src/databaseManager/*"],
+      "@types/*": ["./src/types/*"]
     }
   },
   "include": ["src/**/*"]
