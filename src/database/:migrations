@@ -1,0 +1,80 @@
+yarn run v1.22.4
+$ /home/hiarly/Coding/DevStore/server/node_modules/.bin/knex
+Requiring external module ts-node/register
+Usage:  [options] [command]
+
+Options:
+  -V, --version                   output the version number
+  --debug                         Run with debugging.
+  --knexfile [path]               Specify the knexfile path.
+  --knexpath [path]               Specify the path to knex instance.
+  --cwd [path]                    Specify the working directory.
+  --client [name]                 Set DB client without a knexfile.
+  --connection [address]          Set DB connection without a knexfile.
+  --migrations-directory [path]   Set migrations directory without a knexfile.
+  --migrations-table-name [path]  Set migrations table name without a knexfile.
+  --env [name]                    environment, default: process.env.NODE_ENV ||
+                                  development
+  --esm                           Enable ESM interop.
+  --specific [path]               Specify one seed file to execute.
+  -h, --help                      display help for command
+
+Commands:
+  init [options]                          Create a fresh knexfile.
+  migrate:make [options] <name>           Create a named migration file.
+  migrate:latest [options]                Run all migrations that have not
+                                  yet been run.
+  migrate:up [<name>]                     Run the next or the specified
+                                  migration that has not yet been run.
+  migrate:rollback [options]              Rollback the last batch of
+                                  migrations performed.
+  migrate:down [<name>]                   Undo the last or the specified
+                                  migration that was already run.
+  migrate:currentVersion                  View the current version for the
+                                  migration.
+  migrate:list|migrate:status             List all migrations files with
+                                  status.
+  migrate:unlock                          Forcibly unlocks the migrations
+                                  lock table.
+  seed:make [options] <name>              Create a named seed file.
+  seed:run [options]                      Run seed files.
+  help [command]                  display help for command
+Usage: knex [options] [command]
+
+Options:
+  -V, --version                   output the version number
+  --debug                         Run with debugging.
+  --knexfile [path]               Specify the knexfile path.
+  --knexpath [path]               Specify the path to knex instance.
+  --cwd [path]                    Specify the working directory.
+  --client [name]                 Set DB client without a knexfile.
+  --connection [address]          Set DB connection without a knexfile.
+  --migrations-directory [path]   Set migrations directory without a knexfile.
+  --migrations-table-name [path]  Set migrations table name without a knexfile.
+  --env [name]                    environment, default: process.env.NODE_ENV ||
+                                  development
+  --esm                           Enable ESM interop.
+  --specific [path]               Specify one seed file to execute.
+  -h, --help                      display help for command
+
+Commands:
+  init [options]                          Create a fresh knexfile.
+  migrate:make [options] <name>           Create a named migration file.
+  migrate:latest [options]                Run all migrations that have not
+                                  yet been run.
+  migrate:up [<name>]                     Run the next or the specified
+                                  migration that has not yet been run.
+  migrate:rollback [options]              Rollback the last batch of
+                                  migrations performed.
+  migrate:down [<name>]                   Undo the last or the specified
+                                  migration that was already run.
+  migrate:currentVersion                  View the current version for the
+                                  migration.
+  migrate:list|migrate:status             List all migrations files with
+                                  status.
+  migrate:unlock                          Forcibly unlocks the migrations
+                                  lock table.
+  seed:make [options] <name>              Create a named seed file.
+  seed:run [options]                      Run seed files.
+  help [command]                  display help for command
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

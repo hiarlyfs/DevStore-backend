@@ -4,19 +4,19 @@ export async function seed(knex: Knex) {
   await knex('products').insert([
     {
       name: 'Intellij',
-      category: 'Ferramentas',
+      category: 'tools',
       price: 150,
       image: 'ferramentas/intellij.jpg'
     },
     {
       name: 'PyCharm',
-      category: 'Ferramentas',
+      category: 'tools',
       price: 100,
       image: 'ferramentas/pycharm.png'
     },
     {
       name: 'VsCode',
-      category: 'Ferramentas',
+      category: 'tools',
       price: 90,
       image: 'ferramentas/vscode.png'
     },
@@ -37,30 +37,30 @@ export async function seed(knex: Knex) {
       name: 'Vue',
       category: 'frameworks',
       price: 80,
-      image: 'frameworks/vuw.png'
+      image: 'frameworks/vue.png'
     },
 
     {
       name: 'Java',
-      category: 'linguagens',
+      category: 'languages',
       price: 200,
       image: 'linguagens/logoJava.jpg'
     },
     {
       name: 'Javascript',
-      category: 'linguagens',
+      category: 'languages',
       price: 40,
       image: 'linguagens/logoJavascript.png'
     },
     {
       name: 'PHP',
-      category: 'linguagens',
+      category: 'languages',
       price: 200,
       image: 'linguagens/logoPhp.png'
     },
     {
       name: 'Python',
-      category: 'linguagens',
+      category: 'languages',
       price: 10,
       image: 'linguagens/logoPython.png'
     }
