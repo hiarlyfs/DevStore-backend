@@ -1,6 +1,6 @@
 import knex from '../database/connection'
-import { Database } from 'src/interfaces/database'
-import { Product } from 'src/types/Product'
+import { Database } from '../interfaces/database'
+import { Product } from '../types/Product'
 
 export default class LocalDatabase implements Database {
   async getProducts(category?: string): Promise<Product[]> {

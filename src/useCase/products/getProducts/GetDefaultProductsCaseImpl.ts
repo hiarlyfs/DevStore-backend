@@ -1,5 +1,5 @@
 import GetProductsCase from './GetProductsCase'
-import { Product } from 'src/types/Product'
+import { Product } from '../../../types/Product'
 import LocalDatabase from '@databaseManager/localDatabase'
 import { Database } from '@interfaces/database'
 

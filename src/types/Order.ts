@@ -6,12 +6,25 @@ export type IItemOrder = {
   quantity: number
 }
 
-export type IOrder = {
+export type IOrderData = {
+  clientId: string
+  items: IItemOrder[]
   amountInCents: number
+}
+
+export interface ICardOrderData extends IOrderData {
   cardNumber: string
   cardHolderName: string
   cardExpirationDate: string
   cardCvv: string
   installments: number
-  items: IItemOrder[]
+}
+
+export interface IBankSlipOrderData extends IOrderData {
+  customer: {
+    type: string
+    country: string
+    name: string
+    documents: [{ type: string; number: string }]
+  }
 }

@@ -6,6 +6,7 @@ export interface IItemOrderRequest {
 }
 
 export interface IOrderRequest {
+  option: string
   clientId: string
   amountInCents: number
   cardNumber: string
