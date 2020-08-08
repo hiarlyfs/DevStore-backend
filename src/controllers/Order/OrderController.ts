@@ -1,24 +1,34 @@
 import { Request, Response } from 'express'
-import { IOrderRequest } from './OrderRequest.interface'
-import OrderUtilsController from './OrderUtilsController'
-import Transaction from '../../useCase/transaction/Transaction'
-import CardTransaction from '../../useCase/transaction/CardTransactions'
+import {
+  IOrderCardRequest,
+  IOrderBankSlipRequest
+} from './OrderRequestInterface'
+import { getTransactionOption } from '@utils/TransactionOption'
+import TransactionFactory from '../../useCase/transaction/TransactionFactory'
+import OrderSerializer from './OrderSerializer'
 
 export default class OrderController {
-  private orderUtils: OrderUtilsController
-  private transactionManager: Transaction
+  private orderSerializer: OrderSerializer
+
   constructor() {
-    this.orderUtils = new OrderUtilsController()
-    this.transactionManager = new CardTransaction()
+    this.orderSerializer = new OrderSerializer()
   }
 
   public createOrder = async (
-    req: Request<{}, {}, IOrderRequest>,
+    req: Request<{}, {}, IOrderCardRequest | IOrderBankSlipRequest>,
     res: Response
   ) => {
     try {
-      const order = this.orderUtils.serializeToOrderService(req.body)
-      const transaction = await this.transactionManager.createTransaction(order)
+      const transactionOption = getTransactionOption(req.body.option)
+      const transactionManager = TransactionFactory.createTransactionManager(
+        transactionOption
+      )
+      const orderDataSerialized = this.orderSerializer.serializeToTransactionService(
+        req.body
+      )
+      const transaction = await transactionManager.createTransaction(
+        orderDataSerialized
+      )
       return res.send({ transaction })
     } catch (error) {
       return res.status(400).send(error)

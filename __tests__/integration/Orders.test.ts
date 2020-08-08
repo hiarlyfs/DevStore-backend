@@ -6,6 +6,7 @@ describe('Product test', () => {
     const response = await request(app)
       .post('/orders')
       .send({
+        option: 'card',
         clientId: '123456',
         amountInCents: 36000,
         cardNumber: '6062820475891449',
@@ -14,7 +15,13 @@ describe('Product test', () => {
         cardCvv: '123',
         installments: 1,
         items: [
-          { id: '1', product: 'VsCode', unitPriceInCents: 12000, quantity: 3 }
+          {
+            id: '1',
+            product: 'VsCode',
+            unitPrice: 12000,
+            quantity: 3,
+            tangible: false
+          }
         ]
       })
     return expect(response.status).toBe(200)

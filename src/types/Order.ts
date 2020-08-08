@@ -4,6 +4,7 @@ export type IItemOrder = {
   // Unit price = product's in cents
   unitPrice: number
   quantity: number
+  tagible: boolean
 }
 
 export type IOrderData = {
