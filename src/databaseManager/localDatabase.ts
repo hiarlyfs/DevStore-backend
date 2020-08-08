@@ -13,4 +13,13 @@ export default class LocalDatabase implements Database {
       throw new Error(err)
     }
   }
+
+  async getProductById(id: string | number): Promise<Product> {
+    try {
+      const product = await knex<Product>('products').where('id', id)
+      return product[0]
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
 }

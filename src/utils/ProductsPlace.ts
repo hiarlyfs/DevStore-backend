@@ -1,9 +1,9 @@
 export enum ProductsPlace {
-  LOCAL,
-  PERSONAL
+  DEFAULT,
+  ADD
 }
 
 export function getEnumByValue(value: string): ProductsPlace {
-  const valueEnum = value === 'local' ? 'LOCAL' : 'PERSONAL'
+  const valueEnum = value === 'default' ? 'DEFAULT' : 'ADD'
   return ProductsPlace[valueEnum]
 }

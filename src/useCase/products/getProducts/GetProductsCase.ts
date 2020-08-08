@@ -1,5 +1,6 @@
 import { Product } from '../../../types/Product'
 
-export default abstract class GetProductsCase {
-  public abstract getProducts(categoria?: string): Promise<Product[]>
+export default interface GetProductsCase {
+  getProducts(categoria?: string): Promise<Product[]>
+  getProductById(id: string | number): Promise<Product>
 }

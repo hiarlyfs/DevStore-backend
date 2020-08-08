@@ -21,7 +21,8 @@ module.exports = {
           '@views': './src/views',
           '@interfaces': './src/interfaces',
           '@databaseManager': './src/databaseManager',
-          '@types': './src/types'
+          '@types': './src/types',
+          '@services': './src/services'
         }
       }
     ]

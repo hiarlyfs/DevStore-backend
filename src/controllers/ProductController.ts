@@ -3,12 +3,12 @@ import { Request, Response } from 'express'
 import { ProductsPlace, getEnumByValue } from '../utils/ProductsPlace'
 import GetProductsCase from '../useCase/products/getProducts/GetProductsCase'
 import GetProductFactory from '../useCase/products/getProducts/GetProductsCaseFactory'
-import { Product } from '@types/Product'
+import { Product } from '../types/Product'
 
 export default class ProductController {
   public getProducts = (req: Request, res: Response) => {
+    const { place = 'all', category = '' } = req.query
     try {
-      const { place = 'all', category = '' } = req.query
       const placeProducts: ProductsPlace = getEnumByValue(place.toString())
 
       const getProductsCase: GetProductsCase = GetProductFactory.createGetProductsCase(
