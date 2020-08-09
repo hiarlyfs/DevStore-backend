@@ -10,7 +10,7 @@ export type IItemOrder = {
 export type IOrderData = {
   clientId: string
   items: IItemOrder[]
-  amountInCents: number
+  amount: number
 }
 
 export interface ICardOrderData extends IOrderData {
@@ -23,9 +23,9 @@ export interface ICardOrderData extends IOrderData {
 
 export interface IBankSlipOrderData extends IOrderData {
   customer: {
-    type: string
     country: string
     name: string
-    documents: [{ type: string; number: string }]
+    email: string
+    cpf: string
   }
 }

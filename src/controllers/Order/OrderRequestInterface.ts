@@ -1,20 +1,9 @@
-import { IOrderData } from 'src/types/Order'
+import { ICardOrderData, IBankSlipOrderData } from 'src/types/Order'
 
-export interface IOrderCardRequest extends IOrderData {
+export interface IOrderCardRequest extends ICardOrderData {
   option: string
-  cardNumber: string
-  cardHolderName: string
-  cardExpirationDate: string
-  cardCvv: string
-  installments: number
 }
 
-export interface IOrderBankSlipRequest extends IOrderData {
+export interface IOrderBankSlipRequest extends IBankSlipOrderData {
   option: string
-  customer: {
-    type: string
-    country: string
-    name: string
-    documents: [{ type: string; number: string }]
-  }
 }

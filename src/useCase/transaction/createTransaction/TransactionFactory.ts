@@ -1,6 +1,6 @@
 import { TransactionOption } from '@utils/TransactionOption'
 import Transaction from './Transaction'
-import CardTransaction from './CardTransactions'
+import CardTransaction from './CardTransaction'
 import BankSlipTransaction from './BankSlipTransaction'
 
 export default class TransactionFactory {

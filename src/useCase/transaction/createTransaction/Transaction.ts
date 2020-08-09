@@ -1,4 +1,4 @@
-import { IOrderData } from '../../types/Order'
+import { IOrderData } from '../../../types/Order'
 
 export default abstract class Transaction {
   protected abstract generateTransaction<T extends IOrderData>(
@@ -6,7 +6,8 @@ export default abstract class Transaction {
   ): Promise<any>
 
   private saveTransaction(transaction: any): void {
-    console.log(transaction.id)
+    // TODO: codigo que salva uma transação
+    // no firebase. Salva o id do cliente e o id da compra
   }
 
   public async createTransaction<T extends IOrderData>(order: T): Promise<any> {

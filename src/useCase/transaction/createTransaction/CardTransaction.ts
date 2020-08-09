@@ -1,5 +1,4 @@
 import Transaction from './Transaction'
-import { ICardOrderData } from '../../types/Order'
 import { generateCardTransaction } from '@services/pagarme/transactions'
 
 export default class CardTransaction extends Transaction {

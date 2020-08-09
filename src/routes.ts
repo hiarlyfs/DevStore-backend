@@ -1,5 +1,5 @@
 import express from 'express'
-import ProductController from '@controllers/ProductController'
+import ProductController from '@controllers/Product/ProductController'
 import OrderController from '@controllers/Order/OrderController'
 
 const routes = express.Router()

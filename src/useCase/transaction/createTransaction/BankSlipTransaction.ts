@@ -1,5 +1,4 @@
 import Transaction from './Transaction'
-import { IBankSlipOrderData } from '../../types/Order'
 import { generateBankSlipTransaction } from '@services/pagarme/transactions'
 
 class BankSlipTransaction extends Transaction {
