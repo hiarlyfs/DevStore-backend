@@ -1,4 +1,4 @@
-import { getClient } from './client'
+import { getClient } from './pagarmeConfig'
 import { IItemOrder } from '../../types/Order'
 
 export async function generateCardTransaction({
@@ -23,6 +23,7 @@ export async function generateCardTransaction({
       installments,
       items: orderItems
     })
+
     return transaction
   } catch (err) {
     throw err.response
@@ -39,7 +40,7 @@ export async function generateBankSlipTransaction({
     const client = await getClient()
     const orderItems = serializeItems(items)
     const transaction = await client.transactions.create({
-      amount: 1000,
+      amount,
       payment_method: 'boleto',
       postback_url: 'http://requestb.in/pkt7pgpk',
       items: orderItems,

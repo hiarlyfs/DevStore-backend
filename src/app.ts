@@ -3,6 +3,8 @@ import cors from 'cors'
 import path from 'path'
 import routes from './routes'
 
+import('dotenv').then((res) => res.config({ path: '.env' }))
+
 const app = express()
 
 app.use(cors())

@@ -1,8 +1,8 @@
 import knex from '../database/connection'
-import { Database } from '../interfaces/database'
+import { ProductDatabase } from '../interfaces/database'
 import { Product } from '../types/Product'
 
-export default class LocalDatabase implements Database {
+export default class LocalDatabase implements ProductDatabase {
   async getProducts(category?: string): Promise<Product[]> {
     try {
       const products = category

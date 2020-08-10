@@ -1,10 +1,10 @@
 import GetProductsCase from './GetProductsCase'
 import { Product } from '../../../types/Product'
 import LocalDatabase from '@databaseManager/localDatabase'
-import { Database } from '@interfaces/database'
+import { ProductDatabase } from '@interfaces/database'
 
 export default class GetDefaultProductsCaseImpl implements GetProductsCase {
-  private database: Database
+  private database: ProductDatabase
 
   constructor() {
     this.database = new LocalDatabase()

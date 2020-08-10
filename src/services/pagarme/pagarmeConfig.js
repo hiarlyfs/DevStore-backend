@@ -1,9 +1,10 @@
+require('dotenv').config({ path: '.env' })
 const pagarme = require('pagarme')
 
 async function getClient() {
   try {
     const client = await pagarme.client.connect({
-      api_key: 'ak_test_Dzg2zN20noHTLIVtS23kCumpkBFn8L'
+      api_key: process.env.PAGARME_API_KEY
     })
     return client
   } catch (err) {

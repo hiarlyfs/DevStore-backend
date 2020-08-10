@@ -1,5 +1,6 @@
 import request from 'supertest'
-import app from '../../src/app'
+import app from '../../../src/app'
+import faker from 'faker'
 
 describe('Order test', () => {
   it('Should create a order buy in the card', async () => {
@@ -7,7 +8,7 @@ describe('Order test', () => {
       .post('/orders')
       .send({
         option: 'card',
-        clientId: '123456',
+        clientId: faker.random.uuid(),
         amount: 36000,
         cardNumber: '6062820475891449',
         cardHolderName: 'Hiarly Fernandes de Souto',
@@ -32,7 +33,7 @@ describe('Order test', () => {
       .post('/orders')
       .send({
         option: 'bank slip',
-        clientId: '123456',
+        clientId: faker.random.uuid(),
         amount: 36000,
         customer: {
           name: 'Hiarly Souto',
