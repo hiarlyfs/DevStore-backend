@@ -23,6 +23,6 @@ describe('Order error test', () => {
           }
         ]
       })
-    return expect(response.status).toBe(200)
+    return expect(response.status).toBe(400)
   })
 })

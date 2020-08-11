@@ -11,8 +11,6 @@ export default class OrderController {
     req: Request<{}, {}, IOrderCardRequest | IOrderBankSlipRequest>,
     res: Response
   ) => {
-    // TODO: validacao com o express-validator
-
     try {
       const transactionOption = getTransactionOption(req.body.option)
       const transactionManager = TransactionFactory.createTransactionManager(
@@ -24,4 +22,8 @@ export default class OrderController {
       return res.status(400).send(error)
     }
   }
+
+  // TODO: get one specific order
+  // TODO: get orders from a specific client
+  // TODO: simulate Bank Slip Payment
 }

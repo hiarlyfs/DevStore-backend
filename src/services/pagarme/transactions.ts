@@ -75,3 +75,13 @@ function serializeItems(items: IItemOrder[]) {
     }
   })
 }
+
+export async function getTransactionById(id: string): Promise<any> {
+  try {
+    const client = await getClient()
+    const transanction = await client.transactions.find({ id })
+    return transanction
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}

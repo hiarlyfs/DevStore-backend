@@ -6,8 +6,6 @@ import { Product } from '../../types/Product'
 import { IGetProductsQueryParams } from './ProductRequestInterface'
 
 export default class ProductController {
-  // TODO: validacao com o express-validator
-
   public getProducts = (
     req: Request<{}, {}, any, IGetProductsQueryParams>,
     res: Response

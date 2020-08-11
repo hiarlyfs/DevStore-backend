@@ -8,8 +8,12 @@ export interface ProductDatabase {
 
 export interface TransactionDatabase {
   saveTransaction(clientId: string, data: IOrderSaveData): Promise<any>
-  getTransactionById(transactionId: string): Promise<any>
   getAllTransactionsFromClient(clientId: string): Promise<any>
+  updateTransactionStatus(
+    clientId: string,
+    transactionId: string,
+    status: string
+  ): Promise<any>
 }
 
 // TODO: Metodos que permitem a criação de um produto

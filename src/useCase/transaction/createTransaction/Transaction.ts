@@ -32,6 +32,10 @@ export default abstract class Transaction {
 
   public async createTransaction<T extends IOrderData>(order: T): Promise<any> {
     const transaction = await this.generateTransaction(order)
-    this.saveTransaction(transaction, order.clientId)
+    const savedTransaction = await this.saveTransaction(
+      transaction,
+      order.clientId
+    )
+    return savedTransaction
   }
 }

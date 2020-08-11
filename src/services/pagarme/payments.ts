@@ -1,9 +1,16 @@
-// TODO: Método para simular o pagamento de um boleto bancário
+import { getClient } from './pagarmeConfig'
+
 export async function simulateBankSlipPayment(
   transactionId: string
-): Promise<any> {}
-
-// TODO: Método para pegar o estadoestado atual de uma transição
-export async function getActualPaymentStatus(
-  transactionId: string
-): Promise<any> {}
+): Promise<any> {
+  try {
+    const client = await getClient()
+    const transaction = await client.transactions.update({
+      id: transactionId,
+      status: 'paid'
+    })
+    return transaction
+  } catch (error) {
+    throw new Error(error.response)
+  }
+}
