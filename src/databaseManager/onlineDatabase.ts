@@ -1,13 +1,14 @@
 import { saveDataInFirebase } from '@services/firebase/firebaseUtils'
 import { TransactionDatabase } from '@interfaces/database'
+import { IOrderSaveData } from 'src/types/Order'
 
 export default class OnlineDatabase implements TransactionDatabase {
-  async saveTransaction(transactionId: string, clientId: string): Promise<any> {
+  async saveTransaction(clientId: string, data: IOrderSaveData): Promise<any> {
     try {
-      const response = await saveDataInFirebase('/transactions', {
-        transactionId,
-        clientId
-      })
+      const response = await saveDataInFirebase(
+        `/clients/${clientId}/transactions`,
+        data
+      )
       return response
     } catch (err) {
       throw new Error(err)

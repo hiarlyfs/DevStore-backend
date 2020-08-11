@@ -1,4 +1,5 @@
 import { Product } from '../types/Product'
+import { IOrderSaveData } from 'src/types/Order'
 
 export interface ProductDatabase {
   getProducts(categoria?: string): Promise<Product[]>
@@ -6,7 +7,7 @@ export interface ProductDatabase {
 }
 
 export interface TransactionDatabase {
-  saveTransaction(transactionId: string, clientId: string): Promise<any>
+  saveTransaction(clientId: string, data: IOrderSaveData): Promise<any>
   getTransactionById(transactionId: string): Promise<any>
   getAllTransactionsFromClient(clientId: string): Promise<any>
 }

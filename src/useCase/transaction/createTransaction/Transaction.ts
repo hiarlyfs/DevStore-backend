@@ -17,10 +17,12 @@ export default abstract class Transaction {
     clientId: string
   ): Promise<any> {
     try {
-      const response = await this.onlineDatabase.saveTransaction(
-        transaction.id,
-        clientId
-      )
+      const response = await this.onlineDatabase.saveTransaction(clientId, {
+        amount: transaction.amount,
+        status: transaction.status,
+        transactionId: transaction.id,
+        data: new Date().toISOString()
+      })
 
       return response
     } catch (err) {

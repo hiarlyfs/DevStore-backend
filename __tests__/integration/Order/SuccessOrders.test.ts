@@ -8,7 +8,7 @@ describe('Order test', () => {
       .post('/orders')
       .send({
         option: 'card',
-        clientId: faker.random.uuid(),
+        clientId: '123',
         amount: 36000,
         cardNumber: '6062820475891449',
         cardHolderName: 'Hiarly Fernandes de Souto',
@@ -33,7 +33,7 @@ describe('Order test', () => {
       .post('/orders')
       .send({
         option: 'bank slip',
-        clientId: faker.random.uuid(),
+        clientId: '123',
         amount: 36000,
         customer: {
           name: 'Hiarly Souto',

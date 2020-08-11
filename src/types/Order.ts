@@ -29,3 +29,10 @@ export interface IBankSlipOrderData extends IOrderData {
     cpf: string
   }
 }
+
+export interface IOrderSaveData {
+  amount: number
+  status: string
+  transactionId: string
+  data: string
+}

@@ -7,6 +7,6 @@ const productController = new ProductController()
 const orderController = new OrderController()
 
 routes.get('/products', productController.getProducts)
-routes.post('/orders', orderController.createOrder)
+routes.post('/orders', orderController. createOrder)
 
 export default routes
