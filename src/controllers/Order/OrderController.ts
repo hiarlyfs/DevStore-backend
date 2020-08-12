@@ -1,9 +1,14 @@
 import { Request, Response } from 'express'
 import { getTransactionOption } from '@utils/TransactionOption'
-import TransactionFactory from '../../useCase/transaction/createTransaction/TransactionFactory'
+
+import CreateTransactionFactory from '@useCase/transaction/createTransaction/CreateTransactionFactory'
+import GetTransaction from '@useCase/transaction/getTransaction/GetTransaction'
+
 import {
   IOrderCardRequest,
-  IOrderBankSlipRequest
+  IOrderBankSlipRequest,
+  IGetClientOrdersQueryRequest,
+  IGetOrderQueryRequest
 } from './OrderRequestInterface'
 
 export default class OrderController {
@@ -13,7 +18,7 @@ export default class OrderController {
   ) => {
     try {
       const transactionOption = getTransactionOption(req.body.option)
-      const transactionManager = TransactionFactory.createTransactionManager(
+      const transactionManager = CreateTransactionFactory.createTransactionManager(
         transactionOption
       )
       const transaction = await transactionManager.createTransaction(req.body)
@@ -23,7 +28,33 @@ export default class OrderController {
     }
   }
 
-  // TODO: get one specific order
-  // TODO: get orders from a specific client
-  // TODO: simulate Bank Slip Payment
+  public getOrdersFromClient = async (
+    req: Request<{}, any, any, IGetClientOrdersQueryRequest>,
+    res: Response
+  ) => {
+    const { clientId } = req.query
+    try {
+      const getTransaction = new GetTransaction()
+      const transactions = await getTransaction.getTransactionsFromClient(
+        clientId
+      )
+      return res.send({ transactions, clientId })
+    } catch (err) {
+      return res.status(400).send({ err })
+    }
+  }
+
+  public getOrder = async (
+    req: Request<{}, any, any, IGetOrderQueryRequest>,
+    res: Response
+  ) => {
+    const { orderId } = req.query
+    try {
+      const getTransaction = new GetTransaction()
+      const transaction = await getTransaction.getTransactionById(orderId)
+      return res.send({ transaction })
+    } catch (err) {
+      return res.status(400).send({ err })
+    }
+  }
 }

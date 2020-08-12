@@ -1,8 +1,9 @@
 import OnlineDatabase from '@databaseManager/onlineDatabase'
 import { IOrderData } from '../../../types/Order'
+import { TransactionDatabase } from '@interfaces/database'
 
-export default abstract class Transaction {
-  private onlineDatabase: OnlineDatabase
+export default abstract class CreateTransaction {
+  private onlineDatabase: TransactionDatabase
 
   constructor() {
     this.onlineDatabase = new OnlineDatabase()
@@ -32,10 +33,7 @@ export default abstract class Transaction {
 
   public async createTransaction<T extends IOrderData>(order: T): Promise<any> {
     const transaction = await this.generateTransaction(order)
-    const savedTransaction = await this.saveTransaction(
-      transaction,
-      order.clientId
-    )
-    return savedTransaction
+    await this.saveTransaction(transaction, order.clientId)
+    return transaction
   }
 }

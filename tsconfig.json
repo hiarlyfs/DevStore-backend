@@ -24,7 +24,8 @@
       "@interfaces/*": ["./src/interfaces/*"],
       "@databaseManager/*": ["./src/databaseManager/*"],
       "@services/*": ["./src/services/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@useCase/*": ["./src/useCase/*"]
     }
   },
   "include": ["src/**/*"]

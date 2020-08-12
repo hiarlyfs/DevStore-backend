@@ -1,7 +1,7 @@
-import Transaction from './Transaction'
+import CreateTransaction from './CreateTransaction'
 import { generateBankSlipTransaction } from '@services/pagarme/transactions'
 
-class BankSlipTransaction extends Transaction {
+class BankSlipTransaction extends CreateTransaction {
   async generateTransaction<IBankSlipOrderData>(
     order: IBankSlipOrderData
   ): Promise<any> {

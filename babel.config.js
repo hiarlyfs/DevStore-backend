@@ -23,7 +23,8 @@ module.exports = {
           '@databaseManager': './src/databaseManager',
           '@types': './src/types',
           '@services': './src/services',
-          '@utils': './src/utils'
+          '@utils': './src/utils',
+          '@useCase': './src/useCase'
         }
       }
     ]

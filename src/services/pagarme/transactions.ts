@@ -8,8 +8,7 @@ export async function generateCardTransaction({
   cardExpirationDate,
   cardCvv,
   installments,
-  items,
-  clientId
+  items
 }: any) {
   try {
     const client = await getClient()

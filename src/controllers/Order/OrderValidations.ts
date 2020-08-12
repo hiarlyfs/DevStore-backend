@@ -14,3 +14,25 @@ export function validadeCreateOrder(
   })
   MiddlewareValidation.validate(bodySchema, req.body, res, next)
 }
+
+export function validadeGetOrdersFromClient(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  const querySchema = joi.object({
+    clientId: joi.string().required()
+  })
+  MiddlewareValidation.validate(querySchema, req.query, res, next, false)
+}
+
+export function validadeGetOrder(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  const querySchema = joi.object({
+    orderId: joi.string().required().not('undefined')
+  })
+  MiddlewareValidation.validate(querySchema, req.query, res, next, false)
+}

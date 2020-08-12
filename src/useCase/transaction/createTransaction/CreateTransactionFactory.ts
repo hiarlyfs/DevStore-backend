@@ -1,12 +1,12 @@
 import { TransactionOption } from '@utils/TransactionOption'
-import Transaction from './Transaction'
+import CreateTransaction from './CreateTransaction'
 import CardTransaction from './CardTransaction'
 import BankSlipTransaction from './BankSlipTransaction'
 
 export default class TransactionFactory {
   public static createTransactionManager(
     transactionOption: TransactionOption
-  ): Transaction {
+  ): CreateTransaction {
     switch (transactionOption) {
       case TransactionOption.CARD:
         return new CardTransaction()
