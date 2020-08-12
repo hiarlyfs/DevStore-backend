@@ -10,8 +10,12 @@ export default class OnlineDatabase implements TransactionDatabase {
   async saveTransaction(clientId: string, data: IOrderSaveData): Promise<any> {
     try {
       const response = await saveDataInFirebase(
-        `/clients/${clientId}/transactions`,
-        data
+        `/clients/${clientId}/transactions/${data.transactionId}`,
+        {
+          amount: data.amount,
+          data: data.data,
+          status: data.status
+        }
       )
       return response
     } catch (err) {

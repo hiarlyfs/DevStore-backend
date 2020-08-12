@@ -5,7 +5,7 @@ export async function saveDataInFirebase(
   data: object
 ): Promise<any> {
   try {
-    const response = await firebaseDatabase.ref(ref).push(data)
+    const response = await firebaseDatabase.ref(ref).set(data)
     return response
   } catch (err) {
     throw new Error(err)
