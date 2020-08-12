@@ -15,7 +15,7 @@ export default class PaymentController {
   ) => {
     const { transactionId, clientId } = req.body
     try {
-      const transaction = this.payTransaction.payBankSlip(
+      const transaction = await this.payTransaction.payBankSlip(
         clientId,
         transactionId
       )

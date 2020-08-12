@@ -24,14 +24,14 @@ export default class ProductController {
         })
       })
     } catch (error) {
-      return res.status(400).send({ error: 'An error ocurred' })
+      return res.status(400).send({ error })
     }
   }
 
   private serializeProduct = (product: Product) => {
     return {
       ...product,
-      image: `http://localhost:3333/uploads/${product.image}`
+      image: `${process.env.BASE_URL}/uploads/${product.image}`
     }
   }
 }

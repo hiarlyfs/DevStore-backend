@@ -33,7 +33,7 @@ describe('Pay bank slip', () => {
         clientId: '123'
       })
 
-    return expect(response.status).toBe(200)
+    return expect(response.body.transaction.status).toBe('paid')
   })
 
   it('Should not pay a bank slip without the transaction id', async () => {

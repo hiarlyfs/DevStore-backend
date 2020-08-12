@@ -15,12 +15,12 @@ export default class PayTransaction {
   ): Promise<any> {
     try {
       const transactionPay = await simulateBankSlipPayment(transactionId)
-      const transactionStatusUpdate = await this.onlineDatabase.updateTransactionStatus(
+      await this.onlineDatabase.updateTransactionStatus(
         clientId,
         transactionId,
         transactionPay.status
       )
-      return transactionStatusUpdate
+      return transactionPay
     } catch (err) {
       throw new Error(err)
     }
