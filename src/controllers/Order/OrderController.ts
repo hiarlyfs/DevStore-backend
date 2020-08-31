@@ -24,6 +24,7 @@ export default class OrderController {
       const transaction = await transactionManager.createTransaction(req.body)
       return res.send({ transaction })
     } catch (error) {
+      console.log(error)
       return res.status(400).send(error)
     }
   }

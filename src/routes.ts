@@ -20,7 +20,7 @@ const orderController = new OrderController()
 const paymentController = new PaymentController()
 
 // products routes
-routes.get('/products', productController.getProducts)
+routes.get('/products', productController.getAllProducts)
 
 // orders routes
 routes.post('/orders', [validadeCreateOrder], orderController.createOrder)

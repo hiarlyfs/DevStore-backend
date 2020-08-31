@@ -42,11 +42,7 @@ describe('Should get orders', () => {
     const response = await request(app).get(
       `/orders?orderId=${transaction.body.transaction.id}`
     )
-    return expect(response.status).toBe(200)
-  })
 
-  it('Should get a specific order', async () => {
-    const response = await request(app).get('/orders?orderId')
-    return expect(response.status).toBe(400)
+    return expect(response.status).toBe(200)
   })
 })

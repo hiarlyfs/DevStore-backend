@@ -1,37 +1,30 @@
 import { Request, Response } from 'express'
-import { ProductsPlace, getEnumByValue } from '../../utils/ProductsPlace'
-import GetProductsCase from '../../useCase/products/getProducts/GetProductsCase'
-import GetProductFactory from '../../useCase/products/getProducts/GetProductsCaseFactory'
+import GetProducts from '../../useCase/products/getProducts/GetProducts'
 import { Product } from '../../types/Product'
 import { IGetProductsQueryParams } from './ProductRequestInterface'
+import GetProductsImpl from '@useCase/products/getProducts/GetProductsImpl'
 
 export default class ProductController {
-  public getProducts = (
+  private getProducts: GetProducts
+
+  constructor() {
+    this.getProducts = new GetProductsImpl()
+  }
+
+  public getAllProducts = (
     req: Request<{}, {}, any, IGetProductsQueryParams>,
     res: Response
   ) => {
-    const { place = 'all', category = '' } = req.query
+    const { category = '' } = req.query
     try {
-      const placeProducts: ProductsPlace = getEnumByValue(place.toString())
-
-      const getProductsCase: GetProductsCase = GetProductFactory.createGetProductsCase(
-        placeProducts
-      )
-
-      getProductsCase.getProducts(category.toString()).then((data) => {
+      this.getProducts.getProducts(category.toString()).then((data) => {
         return res.send({
-          products: data.map((product) => this.serializeProduct(product))
-        })
+            products: data
+	})
       })
     } catch (error) {
       return res.status(400).send({ error })
     }
   }
 
-  private serializeProduct = (product: Product) => {
-    return {
-      ...product,
-      image: `${process.env.BASE_URL}/uploads/${product.image}`
-    }
-  }
 }
