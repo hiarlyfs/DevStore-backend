@@ -16,7 +16,7 @@ export default class GetProductsImpl implements GetProducts {
   async getProductById(id: string): Promise<Product> {
     try {
       const productsPlace: ProductsPlace =
-        id.length < 2 ? ProductsPlace.DEFAULT : ProductsPlace.ONLINE
+        id.length <= 2 ? ProductsPlace.DEFAULT : ProductsPlace.ONLINE
 
       const getProduct = GetProductFactory.createGetProducts(productsPlace)
 

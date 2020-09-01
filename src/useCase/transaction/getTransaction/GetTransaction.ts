@@ -32,8 +32,6 @@ export default class GetTransaction {
         transaction.items
       )
 
-      console.log(itemsTransaction)
-
       return { ...transaction, items: itemsTransaction }
     } catch (error) {
       throw new Error(error)
