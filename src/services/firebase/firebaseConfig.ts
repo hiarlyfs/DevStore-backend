@@ -19,3 +19,4 @@ const config = {
 export const firebase = firebaseApp.initializeApp(config)
 export const firebaseAuth = firebaseApp.auth()
 export const firebaseDatabase = firebaseLib.database()
+export const firestore = firebase.firestore()

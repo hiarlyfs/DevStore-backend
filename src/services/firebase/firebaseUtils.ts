@@ -1,4 +1,4 @@
-import { firebaseDatabase } from './firebaseConfig'
+import { firebaseDatabase, firestore } from './firebaseConfig'
 
 export async function saveDataInFirebase(
   ref: string,
@@ -28,4 +28,11 @@ export async function getData(ref: string) {
   } catch (error) {
     throw new Error(error)
   }
+}
+
+export async function putDataInFirestore(data: object) {
+  const docRef = firestore.collection('products')
+
+  const newData = await docRef.add(data)
+  return newData
 }

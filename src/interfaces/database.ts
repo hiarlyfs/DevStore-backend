@@ -1,5 +1,6 @@
-import { Product } from '../types/Product'
+import { Product, IAddProduct } from '../types/Product'
 import { IOrderSaveData } from 'src/types/Order'
+import { Express } from 'express'
 
 export interface ProductDatabase {
   getProducts(categoria?: string): Promise<Product[]>
@@ -16,6 +17,7 @@ export interface TransactionDatabase {
   ): Promise<any>
 }
 
-// TODO: Metodos que permitem a criação de um produto
-// TODO: Metodos que permite a edição/exclusão de um produto
-export interface AdminDatabase {}
+export interface IAdminDatabase {
+  uploadProductImage(image: Express.Multer.File): string
+  saveNewProductData(data: IAddProduct): Promise<Product>
+}

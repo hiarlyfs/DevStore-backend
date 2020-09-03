@@ -12,6 +12,10 @@ import {
 import PaymentController from '@controllers/Payment/PaymentController'
 import { validatePayOrder } from '@controllers/Payment/PaymentValidations'
 
+import { uploadImage } from './services/googleCloud/googleCloudUtils'
+
+import multer from 'multer'
+
 const routes = express.Router()
 
 // Instances controller
@@ -33,5 +37,9 @@ routes.get(
 
 // payments routes
 routes.put('/payments', [validatePayOrder], paymentController.payOrder)
+
+const upload = multer({})
+
+routes.post('/products', upload.single('image'), productController.crateProduct)
 
 export default routes

@@ -3,7 +3,7 @@ import {
   getData,
   updateData
 } from '@services/firebase/firebaseUtils'
-import { TransactionDatabase } from '@interfaces/database'
+import { TransactionDatabase, AdminDatabase } from '@interfaces/database'
 import { IOrderSaveData } from 'src/types/Order'
 
 export default class OnlineDatabase implements TransactionDatabase {
