@@ -2,7 +2,6 @@ import GetProducts from './GetProducts'
 import { Product } from '../../../types/Product'
 import LocalDatabase from '@databaseManager/localDatabase'
 import { ProductDatabase } from '@interfaces/database'
-import { image } from 'faker'
 
 export default class GetDefaultProductsImpl implements GetProducts {
   private database: ProductDatabase

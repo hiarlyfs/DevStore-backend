@@ -9,8 +9,14 @@ export default class GetProductsImpl implements GetProducts {
       ProductsPlace.DEFAULT
     )
 
-    const products = await getDefaultProducts.getProducts(categoria)
-    return products
+    const getOnlineProducts: GetProducts = GetProductFactory.createGetProducts(
+      ProductsPlace.ONLINE
+    )
+
+    const defaultProducts = await getDefaultProducts.getProducts(categoria)
+    const onlineProducts = await getOnlineProducts.getProducts(categoria)
+    defaultProducts.push(...onlineProducts)
+    return defaultProducts
   }
 
   async getProductById(id: string): Promise<Product> {

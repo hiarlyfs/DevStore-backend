@@ -44,7 +44,6 @@ export default class ProductController {
         price: Number.parseFloat(req.body.price)
       })
 
-      console.log(newProduct)
       return res.send({ ...newProduct })
     } catch (err) {
       console.log(err)

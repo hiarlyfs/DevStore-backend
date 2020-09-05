@@ -3,13 +3,13 @@ import { Express } from 'express'
 
 export function uploadImage(image: Express.Multer.File) {
   const bucket = getBucket()
-  const blob = bucket.file(image.originalname)
+  const blob = bucket.file(image.filename)
   const blobStream = blob.createWriteStream()
 
   const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`
 
   blobStream.on('finish', () => {
-    // The public URL can be used to directly access the file via HTTP.
+    console.log(`New image saved in: ${publicUrl}`)
   })
 
   blobStream.end(image.buffer)

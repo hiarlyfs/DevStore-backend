@@ -39,6 +39,7 @@ export default class OrderController {
       const transactions = await getTransaction.getTransactionsFromClient(
         clientId
       )
+
       return res.send({ transactions, clientId })
     } catch (err) {
       return res.status(400).send({ err })

@@ -1,7 +1,7 @@
 import { IAdminDatabase } from '../interfaces/database'
 import { IAddProduct, Product } from '../types/Product'
 import { uploadImage } from '../services/googleCloud/googleCloudUtils'
-import { putDataInFirestore } from '../services/firebase/firebaseUtils'
+import { putDataInFirestore } from '../services/firebase/firestoreUtils'
 
 export default class AdminDatabase implements IAdminDatabase {
   uploadProductImage(image: Express.Multer.File): string {

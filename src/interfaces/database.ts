@@ -4,7 +4,7 @@ import { Express } from 'express'
 
 export interface ProductDatabase {
   getProducts(categoria?: string): Promise<Product[]>
-  getProductById(id: string | number): Promise<Product>
+  getProductById(id: string): Promise<Product>
 }
 
 export interface TransactionDatabase {

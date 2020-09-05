@@ -1,6 +1,7 @@
 import AdminDatabase from '../../../databaseManager/adminDatabase'
 import { Product } from '../../../types/Product'
 import { IAdminDatabase } from '../../../interfaces/database'
+import { image } from 'faker'
 
 interface INewProduct {
   name: string
@@ -13,7 +14,11 @@ export default class AddProduct {
   addNewProduct = async (data: INewProduct): Promise<Product> => {
     try {
       const adminDatabase = new AdminDatabase()
-      const publicUrl = adminDatabase.uploadProductImage(data.image)
+      const publicUrl = adminDatabase.uploadProductImage({
+        ...data.image,
+        filename: `${Date.now()}_${data.image.originalname}`
+      })
+
       const productSaved = await adminDatabase.saveNewProductData({
         ...data,
         image: publicUrl
