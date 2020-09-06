@@ -1,15 +1,15 @@
 ## Description
 
-This is the backend of the [DevStore Frontend](https://github.com/hiarlyfs/DevStore-backend)
+This is the backend of the [DevStore Frontend](https://github.com/hiarlyfs/DevStore-frontend)
 
 ## Tecnologies used
 
-.[NodeJs](https://nodejs.org/docs/latest-v10.x/api/)
-.[Express](https://expressjs.com/pt-br/4x/api.html)
-.[Multer](https://github.com/expressjs/multer#readme)
-.[Pagar.me](https://docs.pagar.me/reference#principios-basicos)
-.[Google Firebase](https://firebase.google.com/docs)
-.[Google Cloud Storage](https://cloud.google.com/storage)
+- [NodeJs](https://nodejs.org/docs/latest-v10.x/api/)
+- [Express](https://expressjs.com/pt-br/4x/api.html)
+- [Multer](https://github.com/expressjs/multer#readme)
+- [Pagar.me](https://docs.pagar.me/reference#principios-basicos)
+- [Google Firebase](https://firebase.google.com/docs)
+- [Google Cloud Storage](https://cloud.google.com/storage)
 
 ## Motivation
 
@@ -23,23 +23,29 @@ Desire for test a payment's api (I used the [Pagar.me](https://docs.pagar.me/ref
 $ yarn install
 ```
 
-.Create an [firebase project](https://firebase.google.com/)
-. See the file 'firebaseCnfig.ts' and put your credentials in there
+. Create an [firebase project](https://firebase.google.com/)</br>
+. See the file 'firebaseCnfig.ts' and put your credentials in there</br>
 
-.Access the console of [Google Cloud Storage](https://cloud.google.com/storage)
-. See the file 'key.json' and replace the file with your credentials
+. Access the console of [Google Cloud Storage](https://cloud.google.com/storage)</br>
+. See the file 'key.json' and replace the file with your credentials</br>
 
-. Get an api key from [Pagar.me](https://docs.pagar.me/reference#principios-basicos)
+. Get an api key from [Pagar.me](https://docs.pagar.me/reference#principios-basicos)</br>
 
-. After this, create the .env file in the root directory
+. After this, create the .env file in the root directory</br>
 . In the .env file put the:
 
 - FIREBASE_API_KEY='Your firebase api key'
 - FIREBASE_PROJECT_ID='Your firebase project id'
 - PAGARME_API_KEy='Yout Pagar api key'
-- BASE_URL='The url where the server is running'
+- BASE_URL='The url where the server is running' - (By default it's http://localhost:3333)
 - GOOGLE_CLOUD_PROJECT_ID='Your google cloud project_id'
 - GOOGLE_CLOUD_PRIVATE_KEY_ID='Your google cloud private_key_id'
 - GOOGLE_CLOUD_CLIENT_ID='Your google cloud cliend_id'
 
-. Obs: Every value of the key above is without the quotation marks. Ex: BASE_URL=http://localhost:3030
+. Obs: Every value of the key above is without the quotation marks. Ex: BASE_URL=http://localhost:3333</br>
+
+. At least (thank's God):
+  
+```bash
+$ yarn dev
+```
