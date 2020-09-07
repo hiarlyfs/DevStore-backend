@@ -13,20 +13,19 @@ export default class GetDefaultProductsImpl implements GetProducts {
   public async getProducts(category?: string): Promise<Product[]> {
     const products = await this.database.getProducts(category)
 
-    return products.map((product) => {
-      return {
-        ...product,
-        image: `http://localhost:3333/uploads/${product.image}`
-      }
-    })
+    return products.map((product) => this.serializeProduct(product))
   }
 
   public async getProductById(id: string): Promise<Product> {
     const product = await this.database.getProductById(id)
 
+    return this.serializeProduct(product)
+  }
+
+  private serializeProduct = (product: Product) => {
     return {
       ...product,
-      image: `http://localhost:3333/uploads/${product.image}`
+      image: `${process.env.BASE_URL}/uploads/${product.image}`
     }
   }
 }
